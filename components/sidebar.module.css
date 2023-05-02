@@ -1,0 +1,70 @@
+.sidebar_container {
+    position: fixed;
+    width: 200px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #44617b;
+    color: white;
+}
+
+.sidebar {
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    border-right: 5px solid var(--border-color);
+}
+
+.sitename{
+    padding: 10px;
+    margin: auto;
+}
+.sitename h1 {
+    color: #bbc8e6;
+    line-height: 1.5rem;
+    margin-top: 0;
+}
+
+.sitename_cn {
+    text-align: justify;
+    text-align-last: justify;
+    font-size: 1.2rem;
+}
+
+.sitename_en {
+    text-align: center;
+    font-size: 1rem;
+}
+
+.profile {
+    margin-top: 5rem;
+    text-align: center;
+}
+
+.profile_image {
+    position: relative;
+    width: 144px;
+    height: 144px;
+    margin:auto;
+    border: 5px solid var(--border-color);
+}
+
+.nav {
+    margin-top: 5rem;
+    width: 100%;
+}
+
+.nav li {
+    position:relative;
+    padding: 10px;
+}
+
+.nav li:hover {
+    background-color: #1f3134;
+}
+
+.nav_active {
+    background-color: #1f3134;
+}
