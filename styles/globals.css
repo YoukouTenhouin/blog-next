@@ -1,6 +1,8 @@
 :root {
-  --border-color: #1e50a2;
+  --highlight-color: #2ca9e1;
+  --highlight-foreground: black;
   --background-light-color: #44617b;
+  --background-dark-color: #203744;
   --text-fade-color: #bbc8e6;
 }
 
@@ -9,7 +11,7 @@ body {
   padding: 0;
   margin: 0;
   color: white;
-  background-color: #203744;
+  background-color: var(--background-dark-color);
   font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -27,6 +29,7 @@ img {
   max-width: 100%;
   height: auto;
 }
+
 p,
 ul {
   margin: 0;

@@ -1,22 +1,66 @@
+.showall_wrapper {
+  display: inline-block;
+  position: relative;
+}
+
+.showall {
+  border: 5px solid var(--highlight-color);
+  display: inline-flex;
+}
+
+.showall div {
+  padding: 0.5rem;
+}
+
+.showall_active {
+  background-color: var(--highlight-color);
+  color: var(--highlight-foreground);
+}
+
 .postlist {
   position: relative;
 }
 
 .postlist_entry {
   position: relative;
-}
-
-.postlist_entry h2 {
-  margin-top: 0;
+  margin-bottom: 1.5rem;
 }
 
 .postlist_entry_container {
-  margin-bottom: 10px;
-  border: 2px solid var(--border-color);
-  background-color: var(--background-light-color);
-  padding: 10px;
+  display: flex;
+  flex-basis: auto;
+  flex-wrap: nowrap;
 }
 
-.langspan {
-  padding: 2px;
+.postlist_entry_title {
+  border: 5px dashed var(--highlight-color);
+  border-right: none;
+  padding: 10px;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.postlist_entry_title h2 {
+  margin-top: 0;
+  font-size: 1rem;
+}
+
+.postlist_entry_info {
+  padding: 10px;
+  width: 10rem;
+  background-color: var(--highlight-color);
+  color: var(--highlight-foreground);
+  flex-direction: column;
+}
+
+.postlist_entry_info_date {
+  flex: 1;
+  text-align: right;
+}
+
+.postlist_entry_info_langs {
+  flex: 1;
+  display: flex;
+  justify-content: right;
 }
