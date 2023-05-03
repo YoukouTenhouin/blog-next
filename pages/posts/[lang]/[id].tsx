@@ -41,7 +41,7 @@ export default function Post({ id, title, date, lang_avaliable, rendered }) {
             <Layout>
                 <div className={styles.post}>
                     <div className={styles.post_info_wrapper}>
-                    <div className={clsx(styles.post_info, "crt")}>
+                    <div className={clsx(styles.post_info)}>
                         <div className={styles.post_info_title}>
                             <h1>{title}</h1>
                         </div>

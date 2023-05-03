@@ -1,3 +1,21 @@
+.background_wrapper {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: no-repeat fixed url('../public/images/background.jpg');
+    background-size: cover;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 200px;
+    right: 0;
+}
+
 .container {
     padding: 0 1rem;
     margin: auto auto auto 200px;

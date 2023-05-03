@@ -165,7 +165,7 @@
   animation: flicker 0.15s infinite;
 }
 
-.crt-darkcorner::before {
+.crt-darkcorner::after {
   content: " ";
   display: block;
   position: absolute;

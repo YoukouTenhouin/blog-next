@@ -1,6 +1,7 @@
 .post {
+    position: relative;
+    background-color: var(--background-blackish-color);
     margin-top: 50px;
-    padding: 10px;
 }
 
 .post_info_wrapper {
@@ -16,7 +17,7 @@
 
 .post_info_title {
     flex: 1;
-    border: 5px dashed var(--highlight-color);
+    border: 5px solid var(--highlight-color);
     border-right: none;
     padding: 1rem;
     display: flex;
@@ -37,6 +38,7 @@
     background-color: var(--highlight-color);
     color: var(--highlight-foreground);
     flex-direction: column;
+    padding: 1rem;
 }
 
 .post_info_large {
@@ -49,11 +51,16 @@
 
 .post_info_lang {
     display: flex;
-    margin-left: 1rem;
     padding: 1rem;
     justify-content: center;
     flex-direction: column;
     border: 5px solid var(--highlight-color);
+}
+
+.post_body{
+    padding: 2rem;
+    border: 5px solid var(--highlight-color);
+    border-top: none;
 }
 
 .post_body pre {

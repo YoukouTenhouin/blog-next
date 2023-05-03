@@ -5,6 +5,7 @@
 
 .showall {
   border: 5px solid var(--highlight-color);
+  background-color: var(--background-blackish-color);
   display: inline-flex;
 }
 
@@ -22,6 +23,7 @@
 }
 
 .postlist_entry {
+  background-color: var(--background-blackish-color);
   position: relative;
   margin-bottom: 1.5rem;
 }
@@ -33,7 +35,7 @@
 }
 
 .postlist_entry_title {
-  border: 5px dashed var(--highlight-color);
+  border: 5px solid var(--highlight-color);
   border-right: none;
   padding: 10px;
   flex-grow: 1;
