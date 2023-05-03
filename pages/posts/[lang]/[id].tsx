@@ -4,6 +4,7 @@ import { getPostData, listPosts } from "../../../lib/posts";
 import styles from '../../../styles/Post.module.css';
 import { remark } from 'remark';
 import html from 'remark-html';
+import Head from "next/head";
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const paths = listPosts().map(p => ({
@@ -28,6 +29,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 export default function Post({ title, date, rendered }) {
     return (
+        <>
+        <Head>
+            <title>{title} - 東亞國中央廣播電臺</title>
+        </Head>
+
         <Layout>
             <h1>{title}</h1>
             <div className={styles.post_info}>
@@ -35,5 +41,6 @@ export default function Post({ title, date, rendered }) {
             </div>
             <div className={styles.post_body} dangerouslySetInnerHTML={{ __html: rendered }} />
         </Layout>
+        </>
     )
 }

@@ -94,8 +94,7 @@ export default function Home({ posts }) {
   return (
     <Layout>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>東亞國中央廣播電臺</title>
       </Head>
 
       <ul className={styles.postlist}>
