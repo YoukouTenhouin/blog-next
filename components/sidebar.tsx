@@ -35,7 +35,7 @@ export default function Sidebar() {
                 <div className={styles.profile}>
                     <div className={`${styles.profile_image} crt-darkcorner`}>
                         <Image
-                            src="/images/profile.png"
+                            src="profile.png"
                             height={144}
                             width={144}
                             alt="Youkou Tenhouin" />
