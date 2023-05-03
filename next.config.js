@@ -1,10 +1,7 @@
 const config = {
-    experimental: {
-        runtime: 'edge',
-    },
     images: {
         loader: 'custom',
-        loaderFile: './cloudflare_loader.js'
+        loaderFile: './dev_loader.js'
     }
 }
 
