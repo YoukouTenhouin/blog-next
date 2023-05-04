@@ -1,5 +1,5 @@
 ---
-title: "Coming to Wayland: Sway move note"
+title: "Embracing the future: Wayland trasition note"
 date: "2023-05-03"
 ---
 

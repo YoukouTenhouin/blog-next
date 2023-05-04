@@ -52,6 +52,12 @@
     display: flex;
     padding: 1rem;
     border: 5px solid var(--highlight-color);
+    border-top: none;
+    border-bottom: none;
+}
+
+.post_lang_button {
+    margin-left: 1rem;
 }
 
 .post_body{
