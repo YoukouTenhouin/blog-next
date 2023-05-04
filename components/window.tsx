@@ -1,8 +1,26 @@
-import { FC, ReactNode } from "react";
+import React, { FC, FunctionComponent, ReactNode } from "react";
 import styles from "./window.module.css";
 import clsx from "clsx";
+import localFont from "next/font/local";
+import { Inconsolata  } from "next/font/google";
 
-const Window: FC<{ title: string; children: ReactNode; crt?: boolean }> = ({
+const pixelFont = localFont({ src: "../fonts/fusion-pixel.woff2" })
+const termFont = Inconsolata({ subsets: ["latin" ]})
+
+const Termline: FC<{ cursor?: boolean, children: ReactNode }> = ({ cursor, children }) => {
+    return (
+        <div className={termFont.className}>
+        <span className={styles.termline}>{children}</span>
+        { cursor ? <span className={styles.termline_cursor}>&nbsp;</span> : <></> }
+        </div>
+    )
+}
+
+interface WindowSubComponents {
+    Termline: typeof Termline
+}
+
+const Window: FC<{ title: string; children: ReactNode; crt?: boolean }> & WindowSubComponents = ({
   title,
   children,
   crt,
@@ -17,6 +35,7 @@ const Window: FC<{ title: string; children: ReactNode; crt?: boolean }> = ({
       <div
         className={clsx({
           [styles.window_title]: true,
+          [pixelFont.className]: true,
           "crt-colorsep": crt,
         })}
       >
@@ -26,5 +45,7 @@ const Window: FC<{ title: string; children: ReactNode; crt?: boolean }> = ({
     </div>
   </div>
 );
+
+Window.Termline = Termline
 
 export default Window;

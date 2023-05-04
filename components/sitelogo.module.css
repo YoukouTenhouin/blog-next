@@ -1,0 +1,21 @@
+.sitelogo {
+    padding: 10px;
+    margin: auto;
+}
+
+.sitelogo h1 {
+    color: #bbc8e6;
+    line-height: 1.5rem;
+    margin-top: 0;
+}
+
+.sitelogo_cn {
+    text-align: justify;
+    text-align-last: justify;
+    font-size: 1.2rem;
+}
+
+.sitelogo_en {
+    text-align: center;
+    font-size: 1rem;
+}

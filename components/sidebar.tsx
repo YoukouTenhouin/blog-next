@@ -7,6 +7,7 @@ import React, { FC, ReactNode, useContext, useState } from "react";
 import LangSpan from "./langspan";
 import LangContext from "./langcontext";
 import Translated from "./translated";
+import SiteLogo from "./sitelogo";
 
 export default function Sidebar() {
   const NavEntry: FC<{ href: string; children: ReactNode }> = ({
@@ -50,10 +51,7 @@ export default function Sidebar() {
   return (
     <div className={`${styles.sidebar_container} crt`}>
       <div className={styles.sidebar}>
-        <div className={`${styles.sitename} crt-colorsep`}>
-          <h1 className={styles.sitename_cn}>東亞國中央廣播電臺</h1>
-          <h1 className={styles.sitename_en}>EASTASIA CENTRAL RADIO STATION</h1>
-        </div>
+        <SiteLogo />
         <div className={styles.lang_switch_wrapper}>
         <div className={styles.lang_switch}>
           <LangSwitchEntry lang="cn" />

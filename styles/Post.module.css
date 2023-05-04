@@ -65,3 +65,11 @@
     border: 5px solid var(--highlight-color);
     border-top: none;
 }
+
+.post_body_cn {
+    text-align: justify;
+}
+
+.post_body_en {
+    text-align: left;
+}
