@@ -53,12 +53,12 @@ export default function Post({ id, title, date, lang_avaliable, rendered }) {
                                 <span className={clsx(styles.post_info_small, "crt-colorsep")}>{moment(date).format("YYYY/MM")}</span>
                             </div>
                         </div>
-                        <div className={styles.post_info_lang}>
+                    </div>
+                        <div className={styles.post_lang}>
                             {lang_avaliable.map(l => <LangButton lang={l} key={l} href={`/posts/${l}/${id}`} />)}
                         </div>
-                    </div>
-                    </div>
                     <div className={styles.post_body} dangerouslySetInnerHTML={{ __html: rendered }} /></div>
+                    </div>
             </Layout>
         </>
     )

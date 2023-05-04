@@ -17,6 +17,7 @@
 }
 
 .wrapper {
+    position: relative;
     margin: auto auto auto 200px;
     display: flex;
     flex-basis: auto;
@@ -26,4 +27,6 @@
 }
 
 .container {
+    flex: 1 1 auto;
+    overflow: hidden;
 }

@@ -9,6 +9,7 @@ interface Post {
     date: string
     lang: string
     content: string
+    categories: string[]
     lang_avaliable: string[]
 }
 
@@ -29,6 +30,7 @@ export function getPostData(id: string, lang: string, fileNames?: string[]) {
         title: postData.data.title as string,
         date: postData.data.date,
         content: postData.content,
+        categories: postData.data.categories || [],
         lang_avaliable: listLanguages(id, fileNames)
     }
 }
@@ -39,4 +41,11 @@ export function listPosts(): Post[] {
         const [id, lang] = fn.split('.')
         return getPostData(id, lang, fileNames)
     }).sort((a, b) => a.id.localeCompare(b.id))
+}
+
+export function listCategories(): Set<string> {
+    const ret = new Set<string>();
+
+    listPosts().forEach(p => p.categories.forEach(c => ret.add(c)))
+    return ret
 }

@@ -1,7 +1,6 @@
 .post {
     position: relative;
     background-color: var(--background-blackish-color);
-    margin-top: 50px;
 }
 
 .post_info_wrapper {
@@ -49,11 +48,9 @@
 
 }
 
-.post_info_lang {
+.post_lang {
     display: flex;
     padding: 1rem;
-    justify-content: center;
-    flex-direction: column;
     border: 5px solid var(--highlight-color);
 }
 
@@ -64,6 +61,7 @@
 }
 
 .post_body pre {
+    overflow: auto;
     border: 5px dashed var(--highlight-color);
     padding: 1rem;
 }
