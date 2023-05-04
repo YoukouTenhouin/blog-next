@@ -16,8 +16,14 @@
     right: 0;
 }
 
-.container {
-    padding: 0 1rem;
+.wrapper {
     margin: auto auto auto 200px;
-    padding: 50px 100px;
+    display: flex;
+    flex-basis: auto;
+    flex-wrap: nowrap;
+    min-width: 36rem; 
+    padding: 5rem;
+}
+
+.container {
 }
