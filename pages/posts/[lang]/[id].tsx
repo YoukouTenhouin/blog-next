@@ -2,13 +2,12 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import Layout from "../../../components/layout";
 import { getPostData, listPosts } from "../../../lib/posts";
 import styles from "../../../styles/Post.module.css";
-import { remark } from "remark";
-import html from "remark-html";
 import Head from "next/head";
 import moment from "moment";
 import clsx from "clsx";
 import LangButton from "../../../components/langbutton";
 import Translated from "../../../components/translated";
+import MDRenderer from "../../../components/mdrenderer";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = listPosts().map((p) => ({
@@ -22,12 +21,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const postData = getPostData(params.id as string, params.lang as string);
-  const renderedBody = await remark().use(html).process(postData.content);
   return {
-    props: {
-      rendered: renderedBody.toString(),
-      ...postData,
-    },
+    props: postData,
   };
 };
 
@@ -37,7 +32,7 @@ export default function Post({
   date,
   lang,
   lang_avaliable,
-  rendered,
+  content,
 }) {
   const other_languages = lang_avaliable.filter((l) => l != lang);
 
@@ -87,10 +82,9 @@ export default function Post({
                 <></>
               )}
             </div>
-            <div
-              className={styles.post_body}
-              dangerouslySetInnerHTML={{ __html: rendered }}
-            />
+            <div className={styles.post_body}>
+              <MDRenderer content={content} />
+            </div>
           </div>
         </div>
       </Layout>

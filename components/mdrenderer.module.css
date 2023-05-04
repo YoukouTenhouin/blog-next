@@ -1,0 +1,9 @@
+.term_line {
+    color: #00ff00;
+}
+
+.codeblock {
+    overflow: auto;
+    border: 5px dashed var(--highlight-color);
+    padding: 1rem;
+}

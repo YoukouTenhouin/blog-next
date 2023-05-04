@@ -1,5 +1,5 @@
 .window_wrapper {
-    display: relative;
+    position: relative;
 }
 
 .window_container {
@@ -13,14 +13,13 @@
     border: 5px solid var(--highlight-color);
     background-color: var(--highlight-color);
     color: var(--highlight-foreground);
-    flex: 0 0 5rem;
+    flex: 0 0 1rem;
     align-items: center;
     padding: 0 1rem;
 }
 
-.window_title h2 {
-    padding: 0;
-    margin: 0;
+.window_title span {
+    font-weight: bold;
 }
 
 .window_body {

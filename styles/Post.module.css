@@ -65,9 +65,3 @@
     border: 5px solid var(--highlight-color);
     border-top: none;
 }
-
-.post_body pre {
-    overflow: auto;
-    border: 5px dashed var(--highlight-color);
-    padding: 1rem;
-}

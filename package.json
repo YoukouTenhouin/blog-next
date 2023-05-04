@@ -8,11 +8,13 @@
   "dependencies": {
     "clsx": "^1.2.1",
     "gray-matter": "^4.0.3",
+    "highlight.js": "^11.8.0",
     "moment": "^2.29.4",
     "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-i18next": "^12.2.2",
+    "react-remark": "^2.1.0",
     "remark": "^14.0.2",
     "remark-html": "^15.0.2",
     "sass": "^1.62.1"
