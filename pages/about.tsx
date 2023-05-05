@@ -364,12 +364,24 @@ const resolvePath = (path: string[]) => normalizePath(cwd.concat(path));
 let scrBuf: TermWindowLine[] = [];
 let cwd: string[] = ["/"];
 
-const history: string[] = [];
+let history: string[] = [];
 let historyPrefix: string | null = null;
 let historyPos = 0;
 
 let completions: string[] = [];
 let completionPos = 0;
+
+const resetMachine = () => {
+    scrBuf = []
+    cwd = ["/"]
+
+    history = []
+    historyPrefix = null
+    historyPos = 0
+
+    completions = []
+    completionPos = 0
+}
 
 interface CommandHandler {
   (args: string[]): void;
@@ -647,7 +659,10 @@ export default function About() {
   }, [printPos, lineBuf]);
 
   useEffect(() => {
+    // init VM
     printLines(greetingText);
+
+    return resetMachine
   }, []);
 
   // Completion
