@@ -29,7 +29,14 @@
 }
 
 .termline {
+    white-space: pre-wrap;
+    word-wrap: break-word;
     color: #00ff00;
+    font-weight: bold;
+}
+
+.termline:empty::before {
+    content: "\200b";
 }
 
 @keyframes blink {

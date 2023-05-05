@@ -1,0 +1,40 @@
+.about_wrapper {
+    height: 30rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.about_inner {
+    position: absolute;
+    min-height: 30rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.inputline {
+    color: #00ff00;
+    font-weight: bold;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+@keyframes blink {
+    0% {
+        background-color: #00ff00;
+        color: black;
+    } 
+    50% {
+        background-color: unset;
+        color: #00ff00;
+    }
+}
+
+.inputline_cursor {
+    animation: blink 1s steps(1) infinite;
+}
+
+.img_wrapper {
+    display: flex;
+    justify-content: center;
+}

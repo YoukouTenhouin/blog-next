@@ -73,6 +73,7 @@ export default function Sidebar() {
         <div className={styles.nav}>
           <ul>
             <NavEntry href="/"><Translated en="Home" cn="首页" /></NavEntry>
+            <NavEntry href="/about"><Translated en="About" cn="关于" /></NavEntry>
           </ul>
         </div>
       </div>
