@@ -935,7 +935,9 @@ export default function About() {
                     }
                 }
             }
-            setInputLine(`${inputLine}${e.key}`);
+            const before = inputLine.slice(0, cursorPos)
+            const after = inputLine.slice(cursorPos)
+            setInputLine(`${before}${e.key}${after}`);
             historyPrefix = null;
             completions = [];
             setCursorPos(cursorPos + 1);
