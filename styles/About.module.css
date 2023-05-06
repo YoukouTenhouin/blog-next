@@ -1,12 +1,12 @@
 .about_wrapper {
-    height: 30rem;
+    height: 50rem;
     overflow: hidden;
     position: relative;
 }
 
 .about_inner {
     position: absolute;
-    min-height: 30rem;
+    min-height: 50rem;
     left: 0;
     right: 0;
     bottom: 0;
@@ -37,4 +37,22 @@
 .img_wrapper {
     display: flex;
     justify-content: center;
+}
+
+.term_section {
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.term_section:empty::before {
+    content: "\200b";
+}
+
+.term_section_clickable {
+    cursor: pointer;
+}
+
+.term_section_clickable:hover {
+    color: black;
+    background-color: #00ff00;
 }
