@@ -6,6 +6,8 @@
   --background-blackish-color: #121212;
   --background-blackish-transparent-color: #121212ee;
   --text-fade-color: #bbc8e6;
+
+  --border-width-default: 0.3rem;
 }
 
 html,

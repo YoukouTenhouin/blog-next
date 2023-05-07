@@ -17,28 +17,6 @@
     border-right: 5px solid var(--highlight-color);
 }
 
-.sitename {
-    padding: 10px;
-    margin: auto;
-}
-
-.sitename h1 {
-    color: #bbc8e6;
-    line-height: 1.5rem;
-    margin-top: 0;
-}
-
-.sitename_cn {
-    text-align: justify;
-    text-align-last: justify;
-    font-size: 1.2rem;
-}
-
-.sitename_en {
-    text-align: center;
-    font-size: 1rem;
-}
-
 .lang_switch_wrapper {
     display: flex;
     justify-content: center;

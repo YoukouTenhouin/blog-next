@@ -107,7 +107,6 @@ const TermWindow: FC<{ vm: MiniVM; lines: TermLine[] }> = ({ vm, lines }) => {
   );
 };
 
-
 function kv(k: string, v: string): TermLine;
 function kv(en_k: string, en_v: string, cn_k: string, cn_v: string): TermLine;
 function kv(en_k: string, v: string, cn_k: string): TermLine;
@@ -155,7 +154,7 @@ function kv(
   }
 }
 
-const e = (cmd: string) => ({ type: "exec" as "exec", command: cmd })
+const e = (cmd: string) => ({ type: "exec" as "exec", command: cmd });
 
 // Filesystem Content
 const fsRoot: FSNode = {
@@ -175,10 +174,10 @@ const fsRoot: FSNode = {
             e("show languages"),
             e("cd"),
             e("cd site"),
-            e("show thanks")
-          ]
-        }
-      }
+            e("show thanks"),
+          ],
+        },
+      },
     },
     usr: {
       type: "dir",
@@ -262,7 +261,7 @@ const printGreeting = (vm: MiniVM) => {
       "Login: guest",
       "Passphrase: ******",
       "",
-      "Auth complete.",
+      "Authentication completed.",
       "",
       "Mounting //dfs_gateway/public to / ...",
       "Done.",
@@ -294,10 +293,17 @@ const printGreeting = (vm: MiniVM) => {
       content: { en: " for avaliable commands.", cn: " 以查看可用命令列表。" },
     })
     .newLine()
-    .printSection({ type: "text", content: { en: "Type ", cn: "输入 "}})
-    .printSection({ type: "text", content: "'run bin/autorun'", commandOnClick: "run bin/autorun"})
-    .printSection({ type: "text", content: { en: " to execute autorun demo.", cn: " 以执行全自动展示。"}})
-    .newLine()
+    .printSection({ type: "text", content: { en: "Type ", cn: "输入 " } })
+    .printSection({
+      type: "text",
+      content: "'run bin/autorun'",
+      commandOnClick: "run bin/autorun",
+    })
+    .printSection({
+      type: "text",
+      content: { en: " to execute autorun demo.", cn: " 以执行全自动展示。" },
+    })
+    .newLine();
 };
 
 export default function About() {
@@ -309,7 +315,7 @@ export default function About() {
 
   const [focused, setFocused] = useState(false);
 
-  const [vm] = useState(new MiniVM(fsRoot));
+  const [vm, setVM] = useState(new MiniVM(fsRoot));
 
   const { current: currentLang } = useContext(LangContext);
 
@@ -324,7 +330,12 @@ export default function About() {
     };
   }, [printPos, lineBuf]);
 
-  useEffect(() => {
+  const resetVM = () => {
+    setLineBuf([])
+    setPrintPos(0)
+    setInputLine("")
+    setCursorPos(0)
+
     // init event listeners
     vm.onInputUpdate = (buf, cursor) => {
       setInputLine(buf);
@@ -337,6 +348,11 @@ export default function About() {
 
     // print greeting
     printGreeting(vm);
+  }
+
+  useEffect(() => {
+    setVM(new MiniVM(fsRoot))
+    resetVM()
   }, []);
 
   return (
@@ -351,27 +367,42 @@ export default function About() {
           vm.onKeyboardEvent(e);
         }}
       >
-        <Window title="TERM" crt>
-          <div className={styles.about_wrapper}>
-            <div
-              className={clsx({
-                [styles.about_inner]: true,
-                [termFont.className]: currentLang == "en",
-                [pixelFont.className]: currentLang == "cn",
-              })}
-            >
-              <TermWindow vm={vm} lines={lineBuf.slice(0, Math.min(printPos, lineBuf.length - 1))} />
-              {printPos >= lineBuf.length ? (
-                <InputLine
-                  line={inputLine}
-                  cursorPos={cursorPos}
-                  focused={focused}
+        <Window>
+          <Window.TitleBar>
+            <Window.TitleText>REMOTE ACESS TERMINAL</Window.TitleText>
+            <Window.TitleButtonGroup>
+              <Window.TitleButton onClick={resetVM}>⟲</Window.TitleButton>
+            </Window.TitleButtonGroup>
+          </Window.TitleBar>
+          <Window.Body>
+            <div className={styles.about_wrapper}>
+              <div
+                className={clsx({
+                  [styles.about_inner]: true,
+                  crt: true,
+                  [termFont.className]: currentLang == "en",
+                  [pixelFont.className]: currentLang == "cn",
+                })}
+              >
+                <TermWindow
+                  vm={vm}
+                  lines={lineBuf.slice(
+                    0,
+                    Math.min(printPos, lineBuf.length - 1)
+                  )}
                 />
-              ) : (
-                <></>
-              )}
+                {printPos >= lineBuf.length ? (
+                  <InputLine
+                    line={inputLine}
+                    cursorPos={cursorPos}
+                    focused={focused}
+                  />
+                ) : (
+                  <></>
+                )}
+              </div>
             </div>
-          </div>
+          </Window.Body>
         </Window>
       </div>
     </Layout>

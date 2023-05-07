@@ -44,14 +44,10 @@
     font-size: 5rem;
 }
 
-.post_info_small {
-
-}
-
 .post_lang {
     display: flex;
     padding: 1rem;
-    border: 5px solid var(--highlight-color);
+    border: var(--border-width-default) solid var(--highlight-color);
     border-top: none;
     border-bottom: none;
 }
@@ -62,7 +58,7 @@
 
 .post_body{
     padding: 2rem;
-    border: 5px solid var(--highlight-color);
+    border: var(--border-width-default) solid var(--highlight-color);
     border-top: none;
 }
 
