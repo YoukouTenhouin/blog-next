@@ -7,7 +7,6 @@ import Layout from "../components/layout";
 import { FC, useContext, useState } from "react";
 import clsx from "clsx";
 import moment from "moment";
-import LangButton from "../components/langbutton";
 import LangContext from "../components/langcontext";
 import Translated from "../components/translated";
 
@@ -70,7 +69,7 @@ const PostListEntry: FC<PostListEntryProps> = ({
             </div>
             <div className={styles.postlist_entry_info_langs}>
               {lang_avaliable.map((l) => (
-                <LangButton lang={l} key={l} href={`/posts/${l}/${id}`} />
+                <Link key={l} href={`/posts/${l}/${id}`}>{l}</Link>
               ))}
             </div>
           </div>

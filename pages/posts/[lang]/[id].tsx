@@ -5,10 +5,10 @@ import styles from "../../../styles/Post.module.css";
 import Head from "next/head";
 import moment from "moment";
 import clsx from "clsx";
-import LangButton from "../../../components/langbutton";
 import Translated from "../../../components/translated";
 import MDRenderer from "../../../components/mdrenderer";
 import localFont from "next/font/local";
+import Link from "next/link";
 
 const pixelFont = localFont({ src: "../../../fonts/fusion-pixel.woff2" });
 
@@ -85,7 +85,7 @@ export default function Post({
                   </span>
                   {other_languages.map((l) => (
                     <div className={styles.post_lang_button} key={l}>
-                      <LangButton lang={l} href={`/posts/${l}/${id}`} />
+                      <Link href={`/posts/${l}/${id}`}>{lang}</Link>
                     </div>
                   ))}
                 </>

@@ -330,12 +330,7 @@ export default function About() {
     };
   }, [printPos, lineBuf]);
 
-  const resetVM = () => {
-    setLineBuf([])
-    setPrintPos(0)
-    setInputLine("")
-    setCursorPos(0)
-
+  const initVM = () => {
     // init event listeners
     vm.onInputUpdate = (buf, cursor) => {
       setInputLine(buf);
@@ -346,14 +341,20 @@ export default function About() {
       setLineBuf([...buf]);
     };
 
-    // print greeting
-    printGreeting(vm);
+    printGreeting(vm)
+  }
+
+  const resetVM = () => {
+    setLineBuf([])
+    setPrintPos(0)
+    setInputLine("")
+    setCursorPos(0)
+    setVM(new MiniVM(fsRoot))
   }
 
   useEffect(() => {
-    setVM(new MiniVM(fsRoot))
-    resetVM()
-  }, []);
+    initVM()
+  }, [vm])
 
   return (
     <Layout>

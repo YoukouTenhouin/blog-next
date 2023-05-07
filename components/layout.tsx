@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import styles from "./layout.module.css";
-import Sidebar from "./sidebar";
+import Navbar from "./navbar";
 
 function Background() {
   return (
@@ -14,7 +14,7 @@ export default function Layout({ children }) {
   return (
     <>
       <Background />
-      <Sidebar />
+      <Navbar />
       <div className={styles.wrapper}>
         <div className={styles.container}>{children}</div>
       </div>

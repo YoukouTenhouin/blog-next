@@ -12,13 +12,13 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 200px;
+    left: 0;
     right: 0;
 }
 
 .wrapper {
     position: relative;
-    margin: auto auto auto 200px;
+    margin: 5rem auto auto auto;
     display: flex;
     flex-basis: auto;
     flex-wrap: nowrap;

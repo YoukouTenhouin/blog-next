@@ -1,0 +1,115 @@
+.navbar_wrapper {
+    position: fixed;
+    height: 3.5rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #44617bee;
+    color: white;
+    z-index: 100;
+}
+
+.navbar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-bottom: var(--border-width-default) solid var(--highlight-color);
+    display: flex;
+    align-items: stretch;
+}
+
+.navbar_group {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.navbar_group:first-child {
+    flex: 1 1;
+}
+
+.navbar_group:last-child {
+    flex: 1 1;
+}
+
+.sitelogo_wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 0 0 20rem;
+    border: var(--border-width-default) solid var(--highlight-color);
+    border-top: 0;
+    border-bottom: 0;
+    background-color: var(--background-blackish-color);
+}
+
+.lang_switch_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.lang_switch {
+    display: flex;
+    align-items: stretch;
+}
+
+.lang_switch_label {
+    display: flex;
+    word-break: keep-all;
+    flex: 1 1 5rem;
+    align-items: center;
+}
+
+.lang_button {
+    display: flex;
+    cursor:pointer;
+    flex: 0 0 3rem;
+    justify-content: center;
+    align-items: center;
+    border-right: var(--border-width-default) solid var(--highlight-color)
+}
+
+.lang_button:hover {
+    background-color: var(--highlight-color);
+    color: var(--highlight-foreground);
+}
+
+.lang_button:last-child {
+    border: none
+}
+
+.lang_switch_active {
+    background-color: var(--highlight-color);
+}
+
+.nav_buttons {
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: center;
+}
+
+.nav_button {
+    position: relative;
+    display: flex;
+    flex: 0 0 5rem;
+    justify-content: center;
+    align-items: center;
+    border-left: var(--border-width-default) solid var(--highlight-color);
+}
+
+.nav_button:first-child {
+    border: none;
+}
+
+.nav_button:hover {
+    background-color: var(--highlight-color);
+    color: var(--highlight-foreground);
+}
+
+.nav_button_active {
+    background-color: var(--highlight-color);
+    color: var(--highlight-foreground);
+}
