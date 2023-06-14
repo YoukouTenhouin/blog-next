@@ -69,7 +69,7 @@ const PostListEntry: FC<PostListEntryProps> = ({
             </div>
             <div className={styles.postlist_entry_info_langs}>
               {lang_avaliable.map((l) => (
-                <Link key={l} href={`/posts/${l}/${id}`}>{l}</Link>
+                <Link key={l} href={`/posts/${l}/${id}`}>{l == "en" ? "English" : "中文"} </Link>
               ))}
             </div>
           </div>

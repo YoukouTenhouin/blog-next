@@ -85,7 +85,7 @@ export default function Post({
                   </span>
                   {other_languages.map((l) => (
                     <div className={styles.post_lang_button} key={l}>
-                      <Link href={`/posts/${l}/${id}`}>{lang}</Link>
+                      <Link href={`/posts/${l}/${id}`}>{l == "en" ? "English" : "中文"}</Link>
                     </div>
                   ))}
                 </>
