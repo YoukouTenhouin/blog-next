@@ -4,7 +4,5 @@
 
 .codeblock {
     overflow: auto;
-    border: var(--border-width-default) dashed var(--highlight-color);
-    padding: 1rem;
     text-align: left;
 }
