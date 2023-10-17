@@ -69,3 +69,8 @@
 .post_body_en {
     text-align: left;
 }
+
+.post_body a
+{
+    color: var(--highlight-color);
+}

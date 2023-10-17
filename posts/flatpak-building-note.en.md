@@ -49,7 +49,7 @@ And OS with a more advanced filesystem can even just let FS to do the job. Solar
 
 Flatpak's solution to this is, at face value, seemly much less sophiscated. Flatpaks are divided into two parts: The "application" part, which contains the application files, and the "runtime" part, which is the environment depended on by the application. At runtime, the application is "mounted"[^1] under `/app`, and the latter is mounted under `/usr`, with some tricks to provide things like /etc from contents within those paths.
 
-But there's a little more to that. Behind flatpak is (ostree)[https://github.com/ostreedev/ostree], which can be roughly thought as "git but for binary files". It store files as checksumed objects, and filesystem states as commits. When you need to construct a filesystem, it will create hard-links from the repo storage. Therefore, if you have multiple applications depending on the same runtime, the runtime can be "mounted" multiple times, but will only take up disk space once, since all the copies are just hard-links.
+But there's a little more to that. Behind flatpak is [ostree](https://github.com/ostreedev/ostree), which can be roughly thought as "git but for binary files". It store files as checksumed objects, and filesystem states as commits. When you need to construct a filesystem, it will create hard-links from the repo storage. Therefore, if you have multiple applications depending on the same runtime, the runtime can be "mounted" multiple times, but will only take up disk space once, since all the copies are just hard-links.
 
 "Nice", I heard you say, "so how can we build a flatpak"?
 
@@ -58,9 +58,9 @@ But there's a little more to that. Behind flatpak is (ostree)[https://github.com
 
 There is plenty of resources on how to build flatpak the standard way, so again I'm not gonna go too deep into it. Basically you write a manifest specifying what runtime you want, how to get the source and compile it, then let `flatpak-builder` to do the job for you.
 
-But since on (openSUSE)[https://www.opensuse.org/] we already have lots of softwares already built as rpms, it seems an awful waste of time and energy to build them again just so we can have them as flatpaks. Is there a way to convert them into flatpaks directly?
+But since on [openSUSE](https://www.opensuse.org/) we already have lots of softwares already built as rpms, it seems an awful waste of time and energy to build them again just so we can have them as flatpaks. Is there a way to convert them into flatpaks directly?
 
-And even better, since we are using rpms built on (Open Build Service)[https://build.opensuse.org/], is it possible if we let OBS also take over the job for building flatpaks?
+And even better, since we are using rpms built on [Open Build Service](https://build.opensuse.org/), is it possible if we let OBS also take over the job for building flatpaks?
 
 Let's give it a thought. Flatpak applications are "mounted" under `/app` at runtime, but most rpms are built with a prefix of `/usr`. There might be hardcoded paths in the binaries, so simply `mv`-ing them might not work. Which means we can't just take the files and shovel them into a flatpak application bundle.
 
@@ -127,3 +127,7 @@ The program will do exactly what we said before: pulling in a OCI container (tai
 With some prelimitary test, the install process of the container way is about 2x slower than directly installing from flatpak bundles. This is probably due to the extra commit process. However, this is only the final install process; it doesn't count in the transfer slowdown due to duplications. And counting in the user experience difference, currently I believe the container way is actually better.
 
 Of course this is just a early conclusion draw from what we currently have. I'll keep doing research and see what direction we can push even further, so stay turned!
+
+[^1]: It's not an actual mount as in UNIX context, we are just using the word as a metaphor.
+
+[^2]: Inspired by [containment-rpm](https://github.com/SUSE/containment-rpm)

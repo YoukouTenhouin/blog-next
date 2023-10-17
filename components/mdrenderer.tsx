@@ -1,9 +1,14 @@
 import { FC, PropsWithChildren, useState } from "react";
-import { useRemarkSync } from "react-remark";
+import * as prod from 'react/jsx-runtime';
 import Window from "./window";
 import styles from "./mdrenderer.module.css";
 import hljs from "highlight.js";
 import { Inconsolata } from "next/font/google";
+import { unified } from "unified";
+import remarkParse from "remark-parse";
+import remarkGfm from "remark-gfm";
+import remarkToRehype from 'remark-rehype';
+import rehypeReact from 'rehype-react';
 
 const codeFont = Inconsolata({ subsets: ["latin"] });
 
@@ -24,20 +29,6 @@ function remarkCodeHandler(_, node: any) {
         tagName: "mdblockcode",
         properties,
         children: [],
-    };
-
-    if (node.meta) result.data = { meta: node.meta };
-
-    return result;
-}
-
-function remarkBlockQuoteHandler(_, node: any) {
-    // Create `<mdblockquote>`
-    // We are not actually rendering this element; this is just a placeholder which will be transfered into a React component later
-    let result: any = {
-        type: "element",
-        tagName: "mdblockquote",
-        children: node.children
     };
 
     if (node.meta) result.data = { meta: node.meta };
@@ -84,20 +75,26 @@ const BlockQuote: FC<PropsWithChildren> = ({ children }) => {
     );
 }
 
+// @ts-expect-error: React types are missing
+const production = { Fragment: prod.Fragment, jsx: prod.jsx, jsxs: prod.jsxs }
+
 const MDRenderer: FC<{ content: string }> = ({ content }) => {
-    return useRemarkSync(content, {
-        remarkToRehypeOptions: {
+    return unified()
+        .use(remarkParse)
+        .use(remarkGfm)
+        .use(remarkToRehype, {
             handlers: {
                 code: remarkCodeHandler,
-            },
-        },
-        rehypeReactOptions: {
+            }
+        })
+        .use(rehypeReact, {
+            ...production,
             components: {
                 blockquote: BlockQuote,
                 mdblockcode: CodeBlock,
-            },
-        },
-    });
+            }
+        } as any)
+        .processSync(content).result
 };
 
 export default MDRenderer;
