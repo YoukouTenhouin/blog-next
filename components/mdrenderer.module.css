@@ -6,3 +6,8 @@
     overflow: auto;
     text-align: left;
 }
+
+.blockquote p
+{
+    margin-top: 0;
+}
