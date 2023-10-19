@@ -28,18 +28,25 @@
 }
 
 .postlist_entry_container {
+  border: 5px solid var(--highlight-color);
   display: flex;
   flex-basis: auto;
   flex-wrap: nowrap;
 }
 
-.postlist_entry_title {
-  border: 5px solid var(--highlight-color);
-  border-right: none;
+.postlist_entry_info {
   padding: 10px;
   flex-grow: 1;
+  flex-direction: column;
   display: flex;
-  align-items: center;
+}
+
+.postlist_entry_info_date {
+  flex: 1;
+  text-align: left;
+}
+
+.postlist_entry_title {
 }
 
 .postlist_entry_title h2 {
@@ -47,21 +54,15 @@
   font-size: 1rem;
 }
 
-.postlist_entry_info {
-  padding: 1rem;
-  flex: 0 0 10rem;
-  background-color: var(--highlight-color);
-  color: var(--highlight-foreground);
-  flex-direction: column;
-}
-
-.postlist_entry_info_date {
-  flex: 1;
-  text-align: right;
-}
-
-.postlist_entry_info_langs {
-  flex: 1;
+.postlist_entry_langs {
   display: flex;
-  justify-content: right;
+  flex: 0 0 10rem;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-end;
+}
+
+.postlist_entry_langs_button {
+    aspect-ratio: 3 / 4;
+    position: relative;
 }
