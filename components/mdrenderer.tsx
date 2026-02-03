@@ -75,7 +75,6 @@ const BlockQuote: FC<PropsWithChildren> = ({ children }) => {
     );
 }
 
-// @ts-expect-error: React types are missing
 const production = { Fragment: prod.Fragment, jsx: prod.jsx, jsxs: prod.jsxs }
 
 const MDRenderer: FC<{ content: string }> = ({ content }) => {

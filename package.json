@@ -6,27 +6,35 @@
     "start": "next start"
   },
   "dependencies": {
-    "clsx": "^1.2.1",
+    "clsx": "^2.1.1",
     "gray-matter": "^4.0.3",
-    "highlight.js": "^11.8.0",
-    "moment": "^2.29.4",
-    "next": "^13.5.5",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-i18next": "^12.2.2",
+    "highlight.js": "^11.11.1",
+    "moment": "^2.30.1",
+    "next": "16.1.6",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-i18next": "^16.5.4",
     "rehype-react": "^8.0.0",
-    "remark": "^14.0.0",
-    "remark-footnotes": "^4.0.1",
-    "remark-gfm": "^4.0.0",
-    "remark-html": "^15.0.2",
+    "remark": "^15.0.1",
+    "remark-footnotes": "^5.0.0",
+    "remark-gfm": "^4.0.1",
+    "remark-html": "^16.0.1",
     "remark-parse": "^11.0.0",
-    "remark-rehype": "^11.0.0",
-    "sass": "^1.62.1",
-    "unified": "^11.0.3"
+    "remark-rehype": "^11.1.2",
+    "sass": "^1.97.3",
+    "sharp": "^0.34.5",
+    "unified": "^11.0.5"
   },
   "devDependencies": {
-    "@types/node": "18.16.3",
-    "@types/react": "18.2.0",
-    "typescript": "5.0.4"
+    "@types/node": "25.2.0",
+    "@types/react": "19.2.10",
+    "eslint": "^9.39.2",
+    "eslint-config-next": "^16.1.6",
+    "node-addon-api": "^8.5.0",
+    "node-gyp": "^12.2.0",
+    "typescript": "5.9.3"
+  },
+  "overrides": {
+    "@types/react": "19.2.10"
   }
 }
