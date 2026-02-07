@@ -45,15 +45,41 @@
     background-color: var(--background-blackish-color);
 }
 
-.lang_switch_wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
+@media screen and (min-width: 960px) {
+    .nav_buttons {
+	display: flex;
+	flex: 1 1 auto;
+	justify-content: center;
+    }
+
+    .lang_switch {
+	display: flex;
+	align-items: stretch;
+    }
+
+    .nav_hamburger_button {
+	display: none;
+    }
 }
 
-.lang_switch {
-    display: flex;
-    align-items: stretch;
+@media screen and (max-width: 960px) {
+    .nav_buttons {
+	display: none;
+    }
+
+    .lang_switch {
+	display: none;
+    }
+
+    .nav_hamburger_button {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-left: auto;
+	padding: 0 0.5rem;
+	font-size: 2rem;
+	cursor: pointer;
+    }
 }
 
 .lang_switch_label {
@@ -65,12 +91,6 @@
 
 .lang_switch_active {
     background-color: var(--highlight-color);
-}
-
-.nav_buttons {
-    display: flex;
-    flex: 1 1 auto;
-    justify-content: center;
 }
 
 .nav_button {
@@ -92,6 +112,16 @@
 }
 
 .nav_button_active {
+    background-color: var(--highlight-color);
+    color: var(--highlight-foreground);
+}
+
+.nav_hamburger_button:hover {
+    background-color: var(--highlight-color);
+    color: var(--highlight-foreground);
+}
+
+.nav_hamburger_button_active {
     background-color: var(--highlight-color);
     color: var(--highlight-foreground);
 }
