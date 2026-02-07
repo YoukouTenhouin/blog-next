@@ -54,6 +54,8 @@
 
 .post_lang_button {
     margin-left: 1rem;
+    display: flex;
+    align-items: center;
 }
 
 .post_body {

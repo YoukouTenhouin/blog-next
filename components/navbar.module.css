@@ -63,24 +63,6 @@
     align-items: center;
 }
 
-.lang_button {
-    display: flex;
-    cursor:pointer;
-    flex: 0 0 3rem;
-    justify-content: center;
-    align-items: center;
-    border-right: var(--border-width-default) solid var(--highlight-color)
-}
-
-.lang_button:hover {
-    background-color: var(--highlight-color);
-    color: var(--highlight-foreground);
-}
-
-.lang_button:last-child {
-    border: none
-}
-
 .lang_switch_active {
     background-color: var(--highlight-color);
 }

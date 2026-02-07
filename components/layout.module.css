@@ -22,7 +22,8 @@
     display: flex;
     flex-basis: auto;
     flex-wrap: nowrap;
-    min-width: 36rem; 
+    min-width: 36rem;
+    max-width: 1280px;
     padding: 5rem;
 }
 

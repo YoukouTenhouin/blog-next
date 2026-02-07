@@ -1,15 +1,19 @@
+import { FC, useContext, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import styles from "../styles/Home.module.css";
-import { listPosts } from "../lib/posts";
 import { GetStaticProps } from "next";
-import Layout from "../components/layout";
-import { FC, useContext, useState } from "react";
 import clsx from "clsx";
 import moment from "moment";
-import LangContext from "../components/langcontext";
-import Translated from "../components/translated";
+
+import { languageToCountryCode } from '@lib/languages'
+import { listPosts } from "@lib/posts";
+import Layout from "@components/layout";
+import LangContext from "@components/lang_context";
+import Translated from "@components/translated";
+
+import styles from "@styles/Home.module.css";
+
 
 export const getStaticProps: GetStaticProps = async (context) => {
     const posts = listPosts()
@@ -73,7 +77,7 @@ const PostListEntry: FC<PostListEntryProps> = ({
                             <div className={styles.postlist_entry_langs_button}>
                                 <Link key={l} href={`/posts/${l}/${id}`}>
                                     <Image
-                                        src={`/languages/${l}.png`}
+                                        src={`/flags_half/${languageToCountryCode(l)}.png`}
                                         fill
                                         style={{ objectFit: 'contain' }}
                                         alt={`Language: ${l}`} />
@@ -109,15 +113,15 @@ export default function Home({ posts }) {
                 >
                     <div>
                         <span>
-                            <Translated en="ALL LANGS" cn="所有语言" />
+                            <Translated en="ALL LANGS" zh="所有语言" />
                         </span>
                     </div>
                     <div>
                         <span>
                             {showAll ? (
-                                <Translated en="ON" cn="开" />
+                                <Translated en="ON" zh="开" />
                             ) : (
-                                <Translated en="OFF" cn="关" />
+                                <Translated en="OFF" zh="关" />
                             )}
                         </span>
                     </div>

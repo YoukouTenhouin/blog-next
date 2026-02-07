@@ -1,26 +1,26 @@
 import { createContext, FC, ReactNode, useEffect, useState } from "react";
 
-type LangsAvaliable = "en" | "cn";
+import { LangsAvailable } from '@lib/languages'
 
 interface LangContextProps {
-    current: LangsAvaliable;
-    setCurrent: (v: LangsAvaliable) => void;
+    current: LangsAvailable;
+    setCurrent: (v: LangsAvailable) => void;
 }
 
 const LangContext = createContext<LangContextProps>({
-    current: "cn",
+    current: "zh",
     setCurrent: () => { },
 });
 
-const ValidLangs = ["en", "cn"]
-const DefaultLang = "cn"
+const ValidLangs = ["en", "zh"]
+const DefaultLang = "zh"
 
 export default LangContext;
 
 export const LangContextProvider: FC<{ children: ReactNode }> = ({
     children,
 }) => {
-    const [lang, setLang] = useState<LangsAvaliable>(null);
+    const [lang, setLang] = useState<LangsAvailable>(null);
     useEffect(() => {
         if (!window) {
             return;
@@ -29,7 +29,7 @@ export const LangContextProvider: FC<{ children: ReactNode }> = ({
         if (!lang || ValidLangs.indexOf(lang) == -1) {
             setLang(DefaultLang)
         } else {
-            setLang(lang as LangsAvaliable)
+            setLang(lang as LangsAvailable)
         }
     }, []);
 
