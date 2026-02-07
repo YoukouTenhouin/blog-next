@@ -54,10 +54,11 @@ export default function Navbar() {
                 <div className={styles.navbar_group}>
                     <div className={styles.lang_switch}>
                         <div className={styles.lang_switch_label}>
-                            <Translated en="LANG:" zh="语言：" />
+                            <Translated en="LANG:" zh="语言：" jp="言語" />
                         </div>
                         <NavLangButton lang="zh" />
                         <NavLangButton lang="en" />
+                        <NavLangButton lang="jp" />
                     </div>
                 </div>
 
@@ -68,10 +69,10 @@ export default function Navbar() {
                 <div className={styles.navbar_group}>
                     <div className={styles.nav_buttons}>
                         <NavEntry href="/">
-                            <Translated en="Home" zh="首页" />
+                            <Translated en="Home" zh="首页" jp="ホーム" />
                         </NavEntry>
                         <NavEntry href="/about">
-                            <Translated en="About" zh="关于" />
+                            <Translated en="About" zh="关于" jp="概要" />
                         </NavEntry>
                     </div>
                 </div>

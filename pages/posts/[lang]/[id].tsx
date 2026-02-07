@@ -83,7 +83,10 @@ export default function Post({
                                 <>
                                     <span>
                                         <Translated
-                                            zh="其他语言:" en="Other languages:" />
+                                            zh="其他语言:"
+                                            en="Other languages:"
+                                            jp="他の言語:"
+                                        />
                                     </span>
                                     {other_languages.map((l) => (
                                         <div

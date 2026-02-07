@@ -113,15 +113,15 @@ export default function Home({ posts }) {
                 >
                     <div>
                         <span>
-                            <Translated en="ALL LANGS" zh="所有语言" />
+                            <Translated en="ALL LANGS" zh="所有语言" jp="全言語" />
                         </span>
                     </div>
                     <div>
                         <span>
                             {showAll ? (
-                                <Translated en="ON" zh="开" />
+                                <Translated en="ON" zh="开" jp="開" />
                             ) : (
-                                <Translated en="OFF" zh="关" />
+                                <Translated en="OFF" zh="关" jp="関" />
                             )}
                         </span>
                     </div>

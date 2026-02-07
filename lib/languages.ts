@@ -1,10 +1,11 @@
 // Language to Country code map
 
-export type LangsAvailable = "en" | "zh";
+export type LangsAvailable = "en" | "zh" | "jp";
 
 const MAP = {
     "zh": "cn",
     "en": "uk",
+    "jp": "jp",
 }
 
 export function languageToCountryCode(language: LangsAvailable | string) {

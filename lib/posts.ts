@@ -24,7 +24,7 @@ export function getPostData(id: string, lang: string, fileNames?: string[]) {
     const fileContent = fs.readFileSync(path.join(postsDirectory, `${id}.${lang}.md`), 'utf8')
     const postData = matter(fileContent)
 
-    return { 
+    return {
         id: id,
         lang: lang,
         title: postData.data.title as string,
